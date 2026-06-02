@@ -1,3 +1,7 @@
+## Requirements 
+- NodeJs V20+
+- NPM
+
 ## Installation
 
 - git clone https://github.com/Yumeka433/rynk-base.git
@@ -24,12 +28,6 @@
 ---
 
 ## Configuration
-
-Edit file:
-
-config.js
-
-Example:
 
 global.owner = [
   "628xxxxxxxxxx"
