@@ -60,7 +60,7 @@ global.mongo =
 
 Folder Structure
 
-.
+`
 ├── plugins
 │   ├── main
 │   ├── ai
@@ -83,7 +83,7 @@ Folder Structure
 ├── handler.js
 ├── index.js
 └── package.json
-
+`
 ---
 
 Plugin Structure
