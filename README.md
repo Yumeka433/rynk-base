@@ -25,7 +25,6 @@ Installation
 
 git clone https://github.com/Yumeka433/rynk-base.git
 cd bot
-
 npm install
 npm start
 
