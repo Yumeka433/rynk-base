@@ -1,4 +1,5 @@
 ## Requirements 
+
 - NodeJs V20+
 - NPM
 
@@ -50,8 +51,6 @@ global.mongo =
 ---
 
 ## Plugin Structure
-
-Example:
 
 export default {
 
