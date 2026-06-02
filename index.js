@@ -90,7 +90,6 @@ async function startBot() {
       ]
     })
 
-  // pairing
   if (
     !sock.authState.creds
       .registered
@@ -111,7 +110,6 @@ async function startBot() {
     )
   }
 
-  // connection
   sock.ev.on(
     "connection.update",
 
@@ -156,7 +154,6 @@ async function startBot() {
     saveCreds
   )
 
-  // welcome
   sock.ev.on(
     "group-participants.update",
 
@@ -216,7 +213,6 @@ ${metadata.subject}`,
     }
   )
 
-  // message
   sock.ev.on(
     "messages.upsert",
 

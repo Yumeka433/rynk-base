@@ -9,10 +9,6 @@ import {
 
 import emitter from "./lib/emitter.js"
 
-// ======================== //
-// LOGS
-// ======================== //
-
 global.logs = []
 
 function addLog(text) {
@@ -34,10 +30,6 @@ ${text}`
   console.log(log)
 
 }
-
-// ======================== //
-// MIDDLEWARE
-// ======================== //
 
 async function loadMiddlewares() {
 
@@ -90,10 +82,6 @@ async function loadMiddlewares() {
 
 }
 
-// ======================== //
-// PLUGIN REGISTRY
-// ======================== //
-
 const plugins = new Map()
 
 global.registry =
@@ -135,10 +123,6 @@ function getFiles(dir) {
   return results
 
 }
-
-// ======================== //
-// LOAD PLUGINS
-// ======================== //
 async function loadPlugins() {
 
 plugins.clear()
@@ -240,10 +224,6 @@ addLog(
 await loadPlugins()
 await loadMiddlewares()
 
-// ======================== //
-// HOT RELOAD
-// ======================== //
-
 fs.watch(
   "./plugins",
   { recursive: true },
@@ -272,10 +252,6 @@ fs.watch(
 
   }
 )
-
-// ======================== //
-// PARSE SENDER
-// ======================== //
 
 function parseSender(msg) {
 
@@ -307,10 +283,6 @@ function parseSender(msg) {
     return ""
   }
 }
-
-// ======================== //
-// HANDLER
-// ======================== //
 
 export default async function handler(
   sock,
@@ -351,7 +323,6 @@ export default async function handler(
     let isAdmin = false
     let isBotAdmin = false
 
-    // self mode
     if (
       global.mode === "self" &&
       !isOwner
@@ -359,11 +330,6 @@ export default async function handler(
     
     global.cooldowns =
     global.cooldowns || new Map()
-
-    // ======================== //
-    // BODY
-    // ======================== //
-
     const body =
 
       msg.message
@@ -389,7 +355,6 @@ export default async function handler(
     let command = ""
     let args = []
 
-    // eval
     if (
       body.startsWith(">") &&
       isOwner
@@ -403,7 +368,6 @@ export default async function handler(
         .split(/ +/)
     }
 
-    // exec
     else if (
       body.startsWith("$") &&
       isOwner
@@ -416,8 +380,7 @@ export default async function handler(
         .trim()
         .split(/ +/)
     }
-
-    // normal
+    
     else {
 
       const prefix =
@@ -425,7 +388,6 @@ export default async function handler(
           body.startsWith(p)
         )
 
-      // noprefix owner
       if (
         !prefix &&
         global.noPrefix &&
@@ -459,10 +421,6 @@ export default async function handler(
     if (!command)
       return
 
-    // ======================== //
-    // LOG
-    // ======================== //
-
     addLog(`
 [ MESSAGE ]
 
@@ -470,10 +428,6 @@ FROM : ${sender}
 CMD  : ${command}
 ARGS : ${args.join(" ")}
 `)
-
-// ======================== //
-// GROUP METADATA
-// ======================== //
 
 if (isGroup) {
 
@@ -512,10 +466,6 @@ isBotAdmin =
 
 }
 
-// ======================== //
-// GROUP DATABASE
-// ======================== //
-
 let group = null
 
 if (isGroup) {
@@ -535,10 +485,6 @@ group =
 }
 
 }
-
-// ======================== //
-// USER DATABASE
-// ======================== //
 
 let user =
 await User.findOne({
@@ -630,10 +576,6 @@ for (
 
 }
 
-// ======================== //
-// BEFORE HOOK
-// ======================== //
-
 for (
 
   const plugin
@@ -665,10 +607,6 @@ ${e}
 
 }
 
-// ======================== //
-// EXECUTE PLUGIN
-// ======================== //
-
 for (
   const plugin
   of global.plugins.values()
@@ -688,7 +626,6 @@ for (
   if (!matched)
     continue
 
-  // plugin disabled
   if (
 
     group?.plugins?.[
@@ -710,7 +647,6 @@ for (
       plugin.command?.[0]
     )
 
-  // cooldown
   const cooldown =
 
     global.cooldowns.get(
@@ -744,7 +680,6 @@ for (
 
   }
 
-  // owner
   if (
 
     plugin.owner &&
@@ -759,7 +694,6 @@ for (
 
   }
 
-  // group
   if (
 
     plugin.group &&
@@ -774,7 +708,6 @@ for (
 
   }
 
-  // admin
   if (
 
     plugin.admin &&
@@ -789,7 +722,6 @@ for (
 
   }
 
-  // bot admin
   if (
 
     plugin.botAdmin &&
@@ -804,7 +736,6 @@ for (
 
   }
 
-  // premium
   if (
 
     plugin.premium &&
@@ -849,7 +780,6 @@ for (
 
     await plugin.execute(m)
 
-    // cooldown set
     if (
       plugin.cooldown
     ) {
@@ -905,10 +835,6 @@ ${e}
   }
 
 }
-
-// ======================== //
-// AFTER HOOK
-// ======================== //
 
 for (
 
