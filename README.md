@@ -23,7 +23,7 @@ Features
 
 Installation
 
-git clone [<repository>](https://github.com/Yumeka433/rynk-base.git)
+git clone https://github.com/Yumeka433/rynk-base.git
 cd bot
 
 npm install
