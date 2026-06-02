@@ -96,20 +96,20 @@ export default {
 
 ---
 
-Plugin Metadata
+## Plugin Metadata
 
-Property| Type| Description
-name| String| Plugin name
-command| Array| Commands
-aliases| Array| Aliases
-tags| Array| Menu category
-cooldown| Number| Cooldown seconds
-owner| Boolean| Owner only
-premium| Boolean| Premium only
-admin| Boolean| Group admin only
-botAdmin| Boolean| Bot admin only
-group| Boolean| Group only
-
+| Property | Type | Description |
+|----------|------|-------------|
+| name | String | Plugin name |
+| command | Array | Commands |
+| aliases | Array | Aliases |
+| tags | Array | Menu category |
+| cooldown | Number | Cooldown seconds |
+| owner | Boolean | Owner only |
+| premium | Boolean | Premium only |
+| admin | Boolean | Group admin only |
+| botAdmin | Boolean | Bot admin only |
+| group | Boolean | Group only |
 ---
 
 Middleware
