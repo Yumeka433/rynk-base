@@ -23,11 +23,10 @@ Features
 
 Installation
 
-git clone https://github.com/Yumeka433/rynk-base.git \n
-cd bot \n
-npm install \n
-npm start
-
+- git clone https://github.com/Yumeka433/rynk-base.git
+- cd rynk-base
+- npm install
+- npm start / node index.js
 
 ---
 
