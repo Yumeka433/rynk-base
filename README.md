@@ -23,9 +23,9 @@ Features
 
 Installation
 
-git clone https://github.com/Yumeka433/rynk-base.git
-cd bot
-npm install
+git clone https://github.com/Yumeka433/rynk-base.git \n
+cd bot \n
+npm install \n
 npm start
 
 
