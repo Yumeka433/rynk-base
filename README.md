@@ -58,34 +58,6 @@ global.mongo =
 
 ---
 
-Folder Structure
-
-`
-├── plugins
-│   ├── main
-│   ├── ai
-│   ├── tools
-│   ├── download
-│   ├── group
-│   └── owner
-│
-├── middlewares
-│
-├── lib
-│   ├── database.js
-│   ├── emitter.js
-│   ├── menuHeader.js
-│   └── scraper
-│
-├── session
-│
-├── config.js
-├── handler.js
-├── index.js
-└── package.json
-`
----
-
 Plugin Structure
 
 Example:
